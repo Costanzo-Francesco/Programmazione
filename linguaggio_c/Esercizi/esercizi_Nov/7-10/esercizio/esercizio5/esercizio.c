@@ -16,10 +16,10 @@ int main () {
 
     } else {
 
-        r = sqrt(n);
+        r = sqrt (n);
         
 
-        printf("La radice quadrata di %.2f è %.2f", n, r);
+        printf("La radice quadrata di %0.2f è %0.2f", n, r);
     }
 
     return 0;

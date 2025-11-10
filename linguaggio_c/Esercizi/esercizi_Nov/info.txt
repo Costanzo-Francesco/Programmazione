@@ -1,0 +1,9 @@
+INDICE DI NOVEMBRE
+
+Argomento           data        n esercizio
+
+Variabili base      05-10       Tutto (ignora il ciclo for) 
+Costanti            10-10       Esercizio 1
+Tab automatico      10-10       Esercizio 2
+If e While          07-10       Esercizio 1
+Variabili float     07-10       Esercizio 2
