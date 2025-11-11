@@ -1,0 +1,21 @@
+🪄 Obiettivo:
+
+-Capire i tipi base in Ruby
+
+-Dichiarare variabili
+
+-Usare l’interpolazione e concatenazione
+
+-Fare calcoli e manipolare stringhe
+
+
+📖 Indice   (inserire numero + tab per terminale)
+
+    0. indice
+    1. variabili
+    2. gestire calcoli
+    3. stringhe
+    4. speciale
+    5. conversione
+    6. input
+    7. esercizio semplice

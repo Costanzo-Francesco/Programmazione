@@ -1,0 +1,16 @@
+🪄 Obiettivo:
+
+-Capire gli operatori aritmetici, logici e di confronto
+
+-Creare ramificazioni con if, elsif, else, e case
+
+-Usare operatori booleani per prendere decisioni complesse
+
+📖 Indice   (inserire numero + tab per terminale)
+
+    0. indice
+    1. condizioni base
+    2. condizioni annidate
+    3. operatore ternario
+    4. istruzione - case
+    5. esercizio
