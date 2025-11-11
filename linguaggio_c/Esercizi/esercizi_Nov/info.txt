@@ -7,3 +7,4 @@ Costanti            10-11       Esercizio 1
 Tab automatico      10-11       Esercizio 2
 If e While          07-11       Esercizio 1
 Variabili float     07-11       Esercizio 2
+radice quadrata     07-11       Esercizio 5
