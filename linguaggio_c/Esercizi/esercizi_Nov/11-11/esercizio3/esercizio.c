@@ -19,7 +19,7 @@ scanf("%d", & anno);
         printf ("\n Anno non bisestile \n");
 
     }
-    
+a
     while (anno!= 0) {
 
 
