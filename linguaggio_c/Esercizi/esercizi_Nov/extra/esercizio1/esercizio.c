@@ -1,25 +1,24 @@
 #include <stdio.h>
 
-int main () {
+int main() {
 
-    int numero;
+  int numero;
 
+  printf("\n Inserisci un numero, il programma ti dirà se è pari o dispari \n");
+  scanf("%d", &numero);
 
-    printf ("\n Inserisci un numero, il programma ti dirà se è pari o dispari \n");
-    scanf ("%d", & numero);
+  if (numero == 0) {
 
-    if (numero == 0) {
+    printf("\n 0 è neutro");
 
-        printf ("\n 0 è neutro");
+  } else if ((numero / 2) * 2 == numero) {
 
-    } else if ((numero/2)*2 == numero) {
+    printf("\n %d è pari", numero);
 
-        printf ("\n %d è pari", numero);
+  } else {
 
-    } else {
+    printf("\n %d è dispari", numero);
+  }
 
-        printf ("\n %d è dispari", numero);
-    }
-
-    return 0;
+  return 0;
 }
