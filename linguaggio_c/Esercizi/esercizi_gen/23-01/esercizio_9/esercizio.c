@@ -16,6 +16,7 @@ int main () {
 
     int numeroParole; // Numero Parole
     char scelta;
+    int cont = 0;
     printf("\nQuante parole vuoi scrivere:\n");
     scanf("%d", &numeroParole);
 
@@ -65,14 +66,21 @@ int main () {
         }
     }
 
-
+    
        printf("\nEcco il tuo elenco, con un indice a fianco");
 
     for (int i = 0; i < numeroParole; i++){
+        if (parole[i][0] == '\0'){
+            cont += 1;
+        } else {
 
-        printf("\n%d. %s", i + 1, parole[i]);
+        printf("\n%d. %s", i + 1 - cont, parole[i]);
+
+        }
     }
+    printf("\n");
 
+    
 
     return 0;
 }
