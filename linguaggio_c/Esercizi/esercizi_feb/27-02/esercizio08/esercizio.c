@@ -8,9 +8,9 @@ Stampare un numero usando puntatore a puntatore
 int main () {
     
     int n1 = 10;
-    int *ptr = &n1;
-    int **ptr = &ptr;
+    int *ptr1 = &n1;
+    int **ptr2 = &ptr1;
 
-    printf("\nIl numero è %d", **ptr);
+    printf("\nIl numero è %d", **ptr2);
     return 0;
 }
