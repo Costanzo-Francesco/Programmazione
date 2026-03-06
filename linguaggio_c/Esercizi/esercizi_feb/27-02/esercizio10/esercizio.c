@@ -11,6 +11,6 @@ int main () {
     int *ptrToValore = &valore;
     printf("\nInserisci un valore numerico.\n");
     scanf("%d", &*ptrToValore);
-    printf("\nIl tuo valore è %d.\n", *ptrToValore);
+    printf("\nIl tuo valore è %d.\n", *ptrToValore);    
     return 0;
 }
