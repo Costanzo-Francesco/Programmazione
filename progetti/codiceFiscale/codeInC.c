@@ -7,8 +7,8 @@ const int MAXCARATTERI = 30;
 const int LUNGHEZZACODICEFISCALE = 17;
 const int ANNOATTUALE = 2026;
 const int TOTGIORNIPERMESI[] = {31, 28, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 void funzioneCognome (char *ptrToCodiceFiscale){
     
@@ -180,15 +180,9 @@ void funzioneAnnoGenere(char *ptrToCodiceFiscale){
     scanf("%s", sGiorno);
     giorno = atoi(sGiorno);
 
-    while (giorno < 1){
-        printf("Reinserisci il giorno di nascita, deve essere maggiore o uguale a 1");
-        scanf("%s", sGiorno);
-        giorno = atoi(sGiorno);
-    }
-
     //Gennaio
     if (mese == 1){
-        while(giorno > TOTGIORNIPERMESI[0]){
+        while(giorno > TOTGIORNIPERMESI[0] || giorno < 1){
             printf("Reinserisci il giorno di nascita, deve essere minore di %d", TOTGIORNIPERMESI[0]);
             scanf("%s", sGiorno);
             giorno = atoi(sGiorno);
@@ -200,14 +194,14 @@ void funzioneAnnoGenere(char *ptrToCodiceFiscale){
 
         if ((anno % 4 == 0 && anno % 100 != 0) || (anno % 400 == 0)){
             
-            while (giorno > TOTGIORNIPERMESI[2]){
+            while (giorno > TOTGIORNIPERMESI[2] || giorno < 1){
                 printf("Reinserisci il giorno di nascita, deve essere minore di %d:", TOTGIORNIPERMESI[2]);
                 scanf("%s", sGiorno);
             giorno = atoi(sGiorno);
             }
         } else {
             
-            while (giorno > TOTGIORNIPERMESI[1]){
+            while (giorno > TOTGIORNIPERMESI[1] || giorno < 1){
                 printf("Reinserisci il giorno di nascita, deve essere minore di %d:", TOTGIORNIPERMESI[1]);
                 scanf("%s", sGiorno);
             giorno = atoi(sGiorno);
@@ -217,7 +211,7 @@ void funzioneAnnoGenere(char *ptrToCodiceFiscale){
     }
     //Marzo
     else if (mese == 3){
-        while(giorno > TOTGIORNIPERMESI[3]){
+        while(giorno > TOTGIORNIPERMESI[3] || giorno < 1){
             printf("Reinserisci il giorno di nascita, deve essere minore di %d:", TOTGIORNIPERMESI[3]);
             scanf("%s", sGiorno);
             giorno = atoi(sGiorno);
@@ -226,7 +220,7 @@ void funzioneAnnoGenere(char *ptrToCodiceFiscale){
     }
     //Aprile
     else if (mese == 4){
-        while(giorno > TOTGIORNIPERMESI[4]){
+        while(giorno > TOTGIORNIPERMESI[4] || giorno < 1){
             printf("Reinserisci il giorno di nascita, deve essere minore di %d:", TOTGIORNIPERMESI[4]);
             scanf("%s", sGiorno);
             giorno = atoi(sGiorno);
@@ -235,7 +229,7 @@ void funzioneAnnoGenere(char *ptrToCodiceFiscale){
     }
     //Maggio
     else if (mese == 5){
-        while(giorno > TOTGIORNIPERMESI[5]){
+        while(giorno > TOTGIORNIPERMESI[5] || giorno < 1){
             printf("Reinserisci il giorno di nascita, deve essere minore di %d:", TOTGIORNIPERMESI[5]);
             scanf("%s", sGiorno);
             giorno = atoi(sGiorno);
@@ -244,7 +238,7 @@ void funzioneAnnoGenere(char *ptrToCodiceFiscale){
     }
     //Giugno
     else if (mese == 6){
-        while(giorno > TOTGIORNIPERMESI[6]){
+        while(giorno > TOTGIORNIPERMESI[6] || giorno < 1){
             printf("Reinserisci il giorno di nascita, deve essere minore di %d:", TOTGIORNIPERMESI[6]);
             scanf("%s", sGiorno);
             giorno = atoi(sGiorno);
@@ -253,7 +247,7 @@ void funzioneAnnoGenere(char *ptrToCodiceFiscale){
     }
     //Luglio
     else if (mese == 7){
-        while(giorno > TOTGIORNIPERMESI[7]){
+        while(giorno > TOTGIORNIPERMESI[7] || giorno < 1){
             printf("Reinserisci il giorno di nascita, deve essere minore di %d:", TOTGIORNIPERMESI[7]);
             scanf("%s", sGiorno);
             giorno = atoi(sGiorno);
@@ -262,7 +256,7 @@ void funzioneAnnoGenere(char *ptrToCodiceFiscale){
     }
     //Agosto
     else if (mese == 8){
-        while(giorno > TOTGIORNIPERMESI[8]){
+        while(giorno > TOTGIORNIPERMESI[8] || giorno < 1){
             printf("Reinserisci il giorno di nascita, deve essere minore di %d:", TOTGIORNIPERMESI[8]);
             scanf("%s", sGiorno);
             giorno = atoi(sGiorno);
@@ -271,7 +265,7 @@ void funzioneAnnoGenere(char *ptrToCodiceFiscale){
     }
     //Settembre
     else if (mese == 9){
-        while(giorno > TOTGIORNIPERMESI[9]){
+        while(giorno > TOTGIORNIPERMESI[9] || giorno < 1){
             printf("Reinserisci il giorno di nascita, deve essere minore di %d:", TOTGIORNIPERMESI[9]);
             scanf("%s", sGiorno);
             giorno = atoi(sGiorno);
@@ -280,7 +274,7 @@ void funzioneAnnoGenere(char *ptrToCodiceFiscale){
     }
     //Ottobre
     else if (mese == 10){
-        while(giorno > TOTGIORNIPERMESI[10]){
+        while(giorno > TOTGIORNIPERMESI[10] || giorno < 1){
             printf("Reinserisci il giorno di nascita, deve essere minore di %d:", TOTGIORNIPERMESI[10]);
             scanf("%s", sGiorno);
             giorno = atoi(sGiorno);
@@ -289,7 +283,7 @@ void funzioneAnnoGenere(char *ptrToCodiceFiscale){
     }
     //Novembre
     else if (mese == 11){
-        while(giorno > TOTGIORNIPERMESI[11]){
+        while(giorno > TOTGIORNIPERMESI[11] || giorno < 1){
             printf("Reinserisci il giorno di nascita, deve essere minore di %d:", TOTGIORNIPERMESI[11]);
             scanf("%s", sGiorno);
             giorno = atoi(sGiorno);
@@ -297,7 +291,7 @@ void funzioneAnnoGenere(char *ptrToCodiceFiscale){
         ptrToCodiceFiscale[8] = 'S';
     }
     //Dicembre
-    else if (mese == 12){
+    else if (mese == 12 || giorno < 1){
         while(giorno > TOTGIORNIPERMESI[12]){
             printf("Reinserisci il giorno di nascita, deve essere minore di %d:", TOTGIORNIPERMESI[12]);
             scanf("%s", sGiorno);
@@ -353,7 +347,6 @@ void funzioneCodiceCatastale ( char *ptrToCodiceFiscale) {
 
     char stringa[MAXCARATTERI];
     char comune[MAXCARATTERI];
-    char parole[MAXCARATTERI];
     char provincia[MAXCARATTERI];
     
     FILE *fp = fopen("CodiciCatastali.txt", "r");
@@ -364,16 +357,15 @@ void funzioneCodiceCatastale ( char *ptrToCodiceFiscale) {
     } else {
 
         printf("\nComune di nascita: ");
-        scanf(" %s", comune);
+        scanf("%s", comune);
         
         for(int i = 0; comune[i] != '\0'; i++){comune[i] = toupper(comune[i]);}
         
         printf("\nSigla provincia: ");
-        scanf(" %s", provincia);
+        scanf("%s", provincia);
         
         for(int i = 0; provincia[i] != '\0'; i++){provincia[i] = toupper(provincia[i]);}
 
-        
         while(fgets(stringa, MAXCARATTERI, fp)) {
 
             char *codice = strtok(stringa, ",");
@@ -384,12 +376,13 @@ void funzioneCodiceCatastale ( char *ptrToCodiceFiscale) {
             if (codice == NULL || prov == NULL || com == NULL) continue;
 
             if (strcmp(prov, provincia) == 0 && strcmp(com, comune) == 0){
-
+                
                 strcpy(&ptrToCodiceFiscale[11], codice);
 
             } 
-
+            
         }
+        
     }
     fclose(fp);
 }
@@ -414,7 +407,7 @@ int main () {
     funzioneNome(codiceFiscale);
     funzioneAnnoGenere(codiceFiscale);
     funzioneCodiceCatastale(codiceFiscale);
-    //funzioneMaiuscolo(codiceFiscale);
+    funzioneMaiuscolo(codiceFiscale);
     printf("\n\n\n %s \n\n", codiceFiscale);
 
     return 0;    
