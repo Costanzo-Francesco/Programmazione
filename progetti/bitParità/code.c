@@ -11,17 +11,17 @@ void pari(int nCaratteri, char codice[]){
     for (int i = 0; i < nCaratteri; i++){
         if (i != nCaratteri){
             temp = (int)(codice[i] - 48);
-            
             somma += temp;
         } 
     }
-    
-    if (somma%2!=cifraControllo){
-        printf("\nCORRETTO\n---\t---\nsomma: %d\nbit:%d\n", somma, cifraControllo);
 
+    if ((somma % 2) == cifraControllo) {
+        printf("\nCORRETTO\n");
     } else {
-        printf("\nERRATO\n---\t---\nsomma: %d\nbit:%d\n", somma, cifraControllo);
+        printf("\nERRATO\n");
     }
+
+    printf("---\t---\nsomma: %d\nbit: %d\n", somma, cifraControllo);
 
 }
 
@@ -33,36 +33,27 @@ void dispari (int nCaratteri, char codice[]){
     for (int i = 0; i < nCaratteri; i++){
         if (i != nCaratteri){
             temp = (int)(codice[i] - 48);
-            
             somma += temp;
-        } 
+        }   
     }
-    
-    if (somma%2!=cifraControllo){
-        printf("\nCORRETTO\n---\t---\nsomma: %d\nbit:%d\n", somma, cifraControllo);
-
+    // parità dispari
+    if ((somma % 2) != cifraControllo) {
+        printf("\nCORRETTO\n");
     } else {
-        printf("\nERRATO\n---\t---\nsomma: %d\nbit:%d\n", somma, cifraControllo);
+        printf("\nERRATO\n");
     }
+
+    printf("---\t---\nsomma: %d\nbit: %d\n", somma, cifraControllo);
 }
 
 int main (int argc, char *argv[]){
     
     int nCaratteri = strlen(argv[1]);
-    int scelta;
     char codice[nCaratteri + 1];
     strcpy(codice, argv[1]);
-    
-    printf("\nCome desideri procedere:\n1. Controllo parità\n2. Controllo disparità\n");
-    scanf("%d", &scelta);
-    while(scelta != 2 && scelta != 1){
-        printf("\nReinserisci scelta (numeri):\n1. Controllo parità\n2. Controllo disparità\n");
-        scanf("%d", &scelta);
-    }
-    
-    if (scelta == 1){
+    if (*argv[2] == '0'){
         pari(nCaratteri, codice);
-    } else if(scelta == 2){
+    } else if(*argv[2] == '1'){
         dispari(nCaratteri, codice);
     }
 }
