@@ -24,9 +24,7 @@ bool main (int argc, char *argv[]) {
     int nCaratteri = strlen(argv[1]);
     char codice[nCaratteri + 1];
     bool flag;
-
     strcpy(codice, argv[1]);
-
     if (*argv[2] == '0') {
         flag = controllo(nCaratteri, codice);
     } else if(*argv[2] == '1') {

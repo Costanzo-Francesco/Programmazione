@@ -9,7 +9,7 @@ typedef struct {
 
     char sezioneNazione[3];     //2 + terminatore
     char sezioneDitta[6];       //5 + terminatore
-    char sezioneArticolo[6];    //6 + terminatore
+    char sezioneArticolo[6];    //5 + terminatore
     char checkDigit;
 
 } prodotto;
