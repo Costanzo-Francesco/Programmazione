@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "libreriaPartitaIva.h"
 
 #define BUFFER 32
 const int MAXCIFRE = 11;
@@ -13,6 +12,7 @@ typedef struct {
     char ultimaCifra;
 
 } partitaIva;
+
 
 
 void unisci (partitaIva *s, char *stringa, int n) {
@@ -32,14 +32,34 @@ int numeroPartiteIva() {
 
 }
 
-void stampaDati(partitaIva *s, int n) {
+char ultimaCifra(){
+    char cifra;
+    printf("\nInserisci ultima cifra per controlla: ");
+    scanf(" %c", &cifra);
+    return cifra;
+}
+
+void stampaDati(partitaIva *s, int n, int scelta) {
 
     printf("\n---\tSTAMPA DATI\t---\n");
-    char stringa[BUFFER];
-    for(int i = 0; i < n; i++){
-        unisci(s, stringa,i);
-        printf("\nNome azienda: %s\nCodice Iva: %s%c\n---\t---\t---\t---\n",s[i].nomeAzienda, stringa, s[i].ultimaCifra);
-    }
+        char cifra;
+        char stringa[BUFFER];
+        for(int i = 0; i < n; i++){
+            if (scelta == 1){
+                cifra = ultimaCifra();
+            }
+            unisci(s, stringa,i);
+            printf("\nNome azienda: %s\nCodice Iva: %s%c\n---\t---\t---\t---\n",s[i].nomeAzienda, stringa, s[i].ultimaCifra);
+            if (scelta == 1){
+                if ( cifra == s[i].ultimaCifra){
+                printf("Cifra corretta: %c\n", cifra);
+
+                }   else {
+                    printf("Cifra errata: %c\n", cifra);
+                }
+            }
+        }
+    
 }
 
 void leggiDati(partitaIva *s, int n) {
@@ -110,17 +130,69 @@ void calcolaControllo(partitaIva *s, int n) {
 
 }
 
+int sceltaOperazione(){
+    int operazione;
+    printf("\nScegli operazione:\n1.\tControllo codice\n2.\tCalcolo ultima cifra\n3.\tEsci\nScelta: ");
+    scanf("%d", &operazione);
+    while(operazione > 3 || operazione < 1){
+        printf("\nReinserisci: ");
+        scanf("%d", &operazione);
+    }
+    return operazione;
+}
+
+void salvaFile(partitaIva *s, int n, int scelta) {
+
+    FILE *fp = fopen("dati.txt", "a");
+    fprintf(fp, "\n---\tDATI\t---\n");
+    char cifra;
+    char stringa[BUFFER];
+        for(int i = 0; i < n; i++){
+            if (scelta == 1){
+                cifra = ultimaCifra();
+            }
+            unisci(s, stringa,i);
+            fprintf(fp,"\nNome azienda: %s\nCodice Iva: %s%c\n---\t---\t---\t---\n",s[i].nomeAzienda, stringa, s[i].ultimaCifra);
+            if (scelta == 1){
+                if ( cifra == s[i].ultimaCifra){
+                fprintf(fp,"Cifra corretta: %c\n", cifra);
+
+                }   else {
+                    fprintf(fp,"Cifra errata: %c\n", cifra);
+                }
+            }
+        }
+    fclose(fp);
+    
+}
+
 int main() {
 
     printf("\n---\tAVVIO\t---\n");
     int nPartite = numeroPartiteIva();
     partitaIva *codiciIva = (partitaIva*) malloc(nPartite * sizeof(partitaIva));
     leggiDati(codiciIva, nPartite);
-    calcolaControllo(codiciIva, nPartite);
-    stampaDati(codiciIva, nPartite);
+
+    int scelta = sceltaOperazione();
+    if (scelta == 1) {
+        calcolaControllo(codiciIva, nPartite);
+        stampaDati(codiciIva, nPartite, scelta);
+    } else if (scelta == 2) {
+        calcolaControllo(codiciIva, nPartite);
+        stampaDati(codiciIva, nPartite, scelta);
+    } else if (scelta == 3) {
+        printf("\n---\tUSCITA\t---\n");
+    } else {
+        printf("\n---\tERRORE USCITA FORZATA\t---\n");
+        free(codiciIva);
+        codiciIva = NULL;
+        return 1;
+    }
+    
+    salvaFile(codiciIva, nPartite, scelta);
+    
     free(codiciIva);
     codiciIva = NULL;
-    printf("\n---\tUSCITA\t---\n");
-    
     return 0;
+    
 }
