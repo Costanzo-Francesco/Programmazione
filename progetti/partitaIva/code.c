@@ -93,7 +93,7 @@ void leggiDati(partitaIva *s, int n) {
 void calcolaControllo(partitaIva *s, int n) {
 
     char stringa[BUFFER];
-    int nInteri[MAXCIFRE];
+    int nInteri[MAXCIFRE - 1];
     int variabiliIntermedie[4];
 
     for(int i = 0; i < n; i++) {
@@ -104,28 +104,28 @@ void calcolaControllo(partitaIva *s, int n) {
         variabiliIntermedie[3] = 0;
         unisci(s, stringa,i);
 
-        for(int j = 0; j < MAXCIFRE; j++) {
-            nInteri[j] = stringa[j] - '0';
+        for(int j = 0; j < MAXCIFRE - 1; j++) {
+            nInteri[j] = stringa[j] - 48;
         }
            
-        for(int j = 0; j < MAXCIFRE; j++) {
-            if (j % 2 == 1) {
-                variabiliIntermedie[0] +=  nInteri[j];
-                if (nInteri[j] >= 3){
-                    variabiliIntermedie[3]++;
-                }
+        for(int j = 0; j < MAXCIFRE - 1; j++) {
+            if ((j + 1) % 2 == 1) {
+                variabiliIntermedie[0] +=  nInteri[j]; //dispari
             } else {
-                if(nInteri[j] * 2 >= 10){
-                    variabiliIntermedie[1] += nInteri[j] - 9;
-                } else {
-                    variabiliIntermedie[1] +=  nInteri[j] * 2;
+
+                variabiliIntermedie[1] += nInteri[j] * 2;
+                if ((nInteri[j]*2) >= 10 ){
+                    variabiliIntermedie[1] -= 9;
+                }
+                if (nInteri[j] * 2 >= 5) {
+                    variabiliIntermedie[2]++;
                 }
             }
             
         }
-        
+
         variabiliIntermedie[3] = (variabiliIntermedie[0] + variabiliIntermedie[1] + variabiliIntermedie[2]) % 10;
-        s[i].ultimaCifra = ((10 - variabiliIntermedie[3]) % 10) + '0';
+        s[i].ultimaCifra = ((10 - variabiliIntermedie[3]) % 10) + 48;
     }
 
 }
